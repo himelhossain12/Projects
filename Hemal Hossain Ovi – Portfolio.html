@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hemal Hossain Ovi – Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f7fb; --alt:#e9eff6; --surface:#ffffff; --ink:#0c1b2e; --muted:#53657b; --line:#d5dee9;
+  --hero1:#07142a; --hero2:#10305c; --gold:#f5b72e; --sky:#4aa3ff; --link:#0b5cad;
+  --shadow:0 10px 30px rgba(12,27,46,.10);
+  --display:"Sora","Segoe UI",Arial,sans-serif; --body:"Newsreader",Georgia,serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#081322;--alt:#0c1b30;--surface:#12253d;--ink:#e9f0f8;--muted:#9fb2c7;--line:#24384f;--link:#7bb7f0;--shadow:0 10px 30px rgba(0,0,0,.35);color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#081322;--alt:#0c1b30;--surface:#12253d;--ink:#e9f0f8;--muted:#9fb2c7;--line:#24384f;--link:#7bb7f0;--shadow:0 10px 30px rgba(0,0,0,.35);color-scheme:dark}
+html{scroll-padding-top:calc(4.5rem + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.7}
+a{color:var(--link)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.12}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.25rem}
+
+/* Sticky nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#07142a;z-index:30}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(7,20,42,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.bar .wrap{display:flex;align-items:center;gap:1.1rem;min-height:3.75rem;overflow-x:auto}
+.logo{font-family:var(--display);font-weight:800;color:#fff;text-decoration:none;white-space:nowrap;margin-right:auto}
+.logo i{font-style:normal;color:var(--gold)}
+.bar a.l{color:#cfdbea;text-decoration:none;font-family:var(--display);font-size:.88rem;font-weight:600;white-space:nowrap}
+.bar a.l:hover{color:#fff}
+.toggle{background:none;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:999px;padding:.3rem .8rem;font-family:var(--display);font-size:.8rem;cursor:pointer;white-space:nowrap}
+
+/* Hero */
+.hero{position:relative;color:#eaf1fa;background:radial-gradient(60rem 30rem at 85% 0%,#1a4a8a 0%,transparent 60%),linear-gradient(160deg,var(--hero1),var(--hero2));overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,#000 30%,transparent 95%);-webkit-mask-image:linear-gradient(to bottom,#000 30%,transparent 95%)}
+.hero .wrap{position:relative;display:grid;gap:2.5rem;padding-top:3.5rem;padding-bottom:4rem}
+@media(min-width:56rem){.hero .wrap{grid-template-columns:1.5fr 1fr;align-items:center;padding-top:5rem;padding-bottom:5.5rem}}
+.badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--display);font-size:.85rem;font-weight:600;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:.35rem .9rem;background:rgba(255,255,255,.07)}
+.badge b{width:.55rem;height:.55rem;border-radius:50%;background:#3ddc97;box-shadow:0 0 0 4px rgba(61,220,151,.25)}
+.hero h1{font-size:clamp(2.8rem,8.5vw,6rem);font-weight:800;letter-spacing:-.035em;margin:1.1rem 0 1rem}
+.hero .role{font-family:var(--display);font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--gold);font-weight:600;margin:0 0 1rem}
+.hero .lede{max-width:36rem;color:#bfd0e4;margin:0}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.btn{font-family:var(--display);font-weight:700;font-size:.95rem;text-decoration:none;padding:.8rem 1.4rem;border-radius:12px;border:2px solid var(--gold);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.p{background:var(--gold);color:#07142a}
+.btn.g{color:#fff}
+.orb{position:relative;width:min(18rem,70vw);aspect-ratio:1;margin:0 auto}
+.orb::before{content:"";position:absolute;inset:-14px;border-radius:50%;background:conic-gradient(from 0deg,var(--gold),var(--sky),transparent 60%,var(--gold));animation:spin 14s linear infinite;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px))}
+.orb div{position:absolute;inset:0;border-radius:50%;background:linear-gradient(145deg,#173d70,#0a1f3d);display:grid;place-items:center;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.orb strong{font-family:var(--display);font-size:4.2rem;font-weight:800;letter-spacing:-.04em}
+.orb span{position:absolute;bottom:18%;font-family:var(--display);font-size:.75rem;color:#9fb6d2}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero .wrap>*{animation:rise .8s ease both}
+.hero .wrap>*:nth-child(2){animation-delay:.15s}
+
+/* Stat strip */
+.strip{position:relative;margin-top:-2.2rem;z-index:2}
+.stats{display:grid;gap:1px;background:var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);grid-template-columns:repeat(2,1fr)}
+@media(min-width:48rem){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--surface);padding:1.3rem 1.4rem}
+.stat b{display:block;font-family:var(--display);font-size:2.1rem;font-weight:800;letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:.95rem;line-height:1.35;display:block}
+
+section{padding:4.5rem 0}
+section.alt{background:var(--alt)}
+.head{margin-bottom:2rem}
+.head h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.025em}
+.head p{color:var(--muted);margin:.5rem 0 0;max-width:36rem}
+.head h2::after{content:"";display:block;width:3.5rem;height:5px;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--sky));margin-top:.8rem}
+.prose{max-width:42rem}
+.prose p{margin:0 0 1rem}
+.about{display:grid;gap:2rem}
+@media(min-width:56rem){.about{grid-template-columns:1.4fr 1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.5rem;box-shadow:var(--shadow);transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card h3{font-size:1.15rem;margin-bottom:.5rem}
+.card p{margin:0;color:var(--muted)}
+.grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+.tag{display:inline-block;margin-top:1rem;font-family:var(--display);font-size:.78rem;font-weight:700;padding:.25rem .7rem;border-radius:999px;background:rgba(245,183,46,.22)}
+.tag.ok{background:rgba(61,220,151,.22)}
+.ico{width:2.6rem;height:2.6rem;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--hero2),var(--hero1));color:var(--gold);margin-bottom:1rem}
+.ico svg{width:1.4rem;height:1.4rem}
+.edu{display:grid;gap:1.25rem}
+@media(min-width:48rem){.edu{grid-template-columns:repeat(3,1fr)}}
+.edu .card{border-top:5px solid var(--gold)}
+.edu .gpa{font-family:var(--display);font-size:2.4rem;font-weight:800;line-height:1}
+.edu small{color:var(--muted);font-size:.95rem;display:block;margin-top:.3rem}
+.tl{list-style:none;margin:0;padding:0 0 0 1.6rem;border-left:3px solid var(--line)}
+.tl li{position:relative;padding-bottom:1.6rem}
+.tl li::before{content:"";position:absolute;left:-2.2rem;top:.4rem;width:1rem;height:1rem;border-radius:50%;background:var(--gold);border:3px solid var(--bg);box-shadow:0 0 0 2px var(--gold)}
+.alt .tl li::before{border-color:var(--alt)}
+.tl h3{font-size:1.15rem}
+.tl small{font-family:var(--display);color:var(--muted);font-size:.85rem}
+.tl p{margin:.3rem 0 0;color:var(--muted)}
+.lead2{display:grid;gap:2rem}
+@media(min-width:56rem){.lead2{grid-template-columns:1fr 1.3fr}}
+.bignum{background:linear-gradient(150deg,var(--hero1),var(--hero2));color:#fff;border-radius:16px;padding:2rem;box-shadow:var(--shadow);align-self:start}
+.bignum b{display:block;font-family:var(--display);font-size:clamp(3rem,8vw,4.5rem);font-weight:800;color:var(--gold);line-height:1}
+.bignum p{margin:.6rem 0 0;color:#c4d4e8}
+.pills{display:flex;flex-wrap:wrap;gap:.6rem}
+.pill{font-family:var(--display);font-weight:600;font-size:.9rem;padding:.5rem 1rem;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.sub{font-family:var(--display);font-weight:700;font-size:1rem;margin:0 0 .8rem}
+.cols{display:grid;gap:2rem}
+@media(min-width:48rem){.cols{grid-template-columns:1fr 1fr}}
+
+/* Contact */
+.contact{background:linear-gradient(160deg,var(--hero1),var(--hero2));color:#eaf1fa;text-align:center;padding:5rem 0}
+.contact h2{font-size:clamp(2rem,6vw,3.6rem);font-weight:800;letter-spacing:-.03em}
+.contact p{color:#bfd0e4;max-width:32rem;margin:1rem auto 2rem}
+.contact .btns{justify-content:center}
+.contact small{display:block;margin-top:2.5rem;color:#8fa6c2;font-family:var(--display);font-size:.8rem}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.orb::before,.hero .wrap>*{animation:none}.card,.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="logo" href="#top">Hemal<i> Ovi</i></a>
+    <a class="l" href="#about">About</a>
+    <a class="l" href="#education">Education</a>
+    <a class="l" href="#research">Research</a>
+    <a class="l" href="#experience">Experience</a>
+    <a class="l" href="#leadership">Leadership</a>
+    <a class="l" href="#contact">Contact</a>
+    <button class="toggle" id="theme" type="button" aria-label="Switch light or dark theme">Theme</button>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="badge"><b></b>Open to scholarships and opportunities</span>
+      <h1>Hemal Hossain Ovi</h1>
+      <p class="role">ICE graduate, MBA in Supply Chain Management, ML researcher</p>
+      <p class="lede">I combine engineering, research and operations thinking. My published review on Parkinson’s disease diagnosis shows how I approach hard problems, and four years of campus leadership taught me how to deliver with a team.</p>
+      <div class="btns">
+        <a class="btn p" href="#research">See my research</a>
+        <a class="btn g" href="#contact">Contact me</a>
+      </div>
+    </div>
+    <div class="orb" role="img" aria-label="Photo placeholder with initials HHO"><div><strong>HHO</strong><span>Add your photo here</span></div></div>
+  </div>
+</header>
+
+<div class="strip"><div class="wrap">
+  <div class="stats">
+    <div class="stat"><b>3.58</b><span>MBA CGPA out of 4.00</span></div>
+    <div class="stat"><b>3.60</b><span>BSc CGPA out of 4.00</span></div>
+    <div class="stat"><b>SCI</b><span>Published in Expert Systems</span></div>
+    <div class="stat"><b>1,400+</b><span>Participants at Techsurgence 2019</span></div>
+  </div>
+</div></div>
+
+<main>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="head"><h2>About me</h2></div>
+      <div class="prose">
+        <p>I studied Information and Communication Engineering first, then added an MBA in Supply Chain Management. Together they let me look at a problem as both a technologist and an operations thinker.</p>
+        <p>My research applies machine learning and deep learning to diagnosing Parkinson’s disease. Outside class I organised university-wide tech events, built websites during an internship, and joined the NASA Space Apps Challenge.</p>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Skills</h3>
+      <p class="sub" style="margin-top:1rem">Technical</p>
+      <div class="pills"><span class="pill">HTML, CSS, JavaScript</span><span class="pill">Machine learning</span><span class="pill">Microsoft Office</span><span class="pill">Google Workspace</span></div>
+      <p class="sub" style="margin-top:1.2rem">Soft skills</p>
+      <div class="pills"><span class="pill">Organisation</span><span class="pill">Critical thinking</span><span class="pill">Analysis</span><span class="pill">Teamwork</span><span class="pill">Attention to detail</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="alt">
+  <div class="wrap">
+    <div class="head"><h2>Education</h2></div>
+    <div class="edu">
+      <div class="card"><div class="gpa">3.58</div><small>out of 4.00</small><h3 style="margin-top:1rem">MBA, Supply Chain Management</h3><p>Bangladesh University of Professionals, June 2025</p></div>
+      <div class="card"><div class="gpa">3.60</div><small>out of 4.00</small><h3 style="margin-top:1rem">BSc, Information and Communication Engineering</h3><p>Bangladesh University of Professionals, January 2023</p></div>
+      <div class="card"><div class="gpa">4.92</div><small>out of 5.00</small><h3 style="margin-top:1rem">HSC, Science</h3><p>Govt. Ananda Mohan College, Mymensingh, December 2018</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="head"><h2>Research</h2><p>Machine learning for early diagnosis of Parkinson’s disease.</p></div>
+    <div class="grid">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 9h8M8 13h6"/></svg></div><h3>Analysis of Different Modalities of Data to Diagnose Parkinson’s Disease Using Machine Learning and Deep Learning Approaches: A Review</h3><p>Published in Expert Systems, an SCI journal.</p><span class="tag ok">Published</span></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><h3>A Parkinson’s Disease Diagnostic Method Based on Machine Learning and Feature Extraction Utilizing Genetic Algorithm</h3><p>A follow-up study that selects features with a genetic algorithm.</p><span class="tag">In progress</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="alt">
+  <div class="wrap">
+    <div class="head"><h2>Projects and experience</h2></div>
+    <div class="grid">
+      <div class="card"><h3>Web Developer Intern, ExomeIT</h3><p>Built two responsive web portfolios with HTML, CSS and JavaScript, and worked with developers to improve site features. Uttara, Dhaka.</p><span class="tag">Oct to Dec 2021</span></div>
+      <div class="card"><h3>Project Variantize, NASA Space Apps Challenge</h3><p>Video editor and content creator on a project that analysed global virus variants using real-time weather and virus data.</p><span class="tag">March 2021</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="wrap lead2">
+    <div>
+      <div class="head"><h2>Leadership</h2></div>
+      <ul class="tl">
+        <li><h3>Joint Secretary, BUP Infotech Club</h3><small>2022</small><p>Organised the Inter-University BUP Techsurgence with IUPC, hackathons, LFR and Robosoccer.</p></li>
+        <li><h3>Organizing Secretary, BUP Cultural Club</h3><small>2022</small><p>Managed logistics and coordinated cultural events.</p></li>
+        <li><h3>Executive Secretary, BUP Literature Club</h3><small>2022</small><p>Ran meetings and communications and kept club operations smooth.</p></li>
+      </ul>
+    </div>
+    <div class="bignum"><b>1,400+</b><p>participants at BUP Techsurgence 2019, then 500+ at the 2022 edition, which I helped organise.</p></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let’s connect</h2>
+    <p>I’m happy to share my CV, references or research papers on request.</p>
+    <div class="btns">
+      <a class="btn p" href="mailto:hemalhossain234@gmail.com">Email me</a>
+      <a class="btn g" href="https://www.linkedin.com/in/hemalhossain">LinkedIn</a>
+    </div>
+    <small>Hemal Hossain Ovi, Dhaka, Bangladesh</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('theme'),r=document.documentElement;
+  try{var s=localStorage.getItem('theme');if(s)r.setAttribute('data-theme',s)}catch(e){}
+  b.addEventListener('click',function(){
+    var d=r.getAttribute('data-theme')==='dark'||(!r.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme:dark)').matches);
+    var n=d?'light':'dark';r.setAttribute('data-theme',n);
+    try{localStorage.setItem('theme',n)}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
